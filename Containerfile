@@ -107,6 +107,11 @@ RUN rm -rf \
 
 RUN systemctl enable sshd
 COPY drop_ins/* /
+RUN chmod +x /usr/bin/bazzite-steam \
+    /usr/libexec/bazzite-autologin \
+    /usr/bin/return-to-gamemode \
+    /usr/bin/steamos-session-select \
+    /usr/bin/Hyprland-oneshot
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
