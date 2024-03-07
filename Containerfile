@@ -14,8 +14,7 @@ RUN rpm-ostree install fuzzel \
 RUN systemctl enable sshd
 COPY drop_ins/* /
 
-rpm-ostree initramfs --enable --arg='--add' --arg='fido2'
-rpm-ostree initramfs-etc --force-sync
+
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
