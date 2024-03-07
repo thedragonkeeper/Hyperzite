@@ -181,7 +181,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
           extra-args: |
-            --target=${{ matrix.base_name }}
+            --target=bazzite-deck-gnome
 
       # - name: Sign kernel
       #   uses: EyeCantCU/kernel-signer@v0.1.3
