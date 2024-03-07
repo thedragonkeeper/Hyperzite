@@ -1,4 +1,4 @@
-FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest as Hyprzite
+FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS Hyprzite
 
 RUN rpm-ostree install cowsay
 
