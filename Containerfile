@@ -106,7 +106,9 @@ RUN rm -rf \
     /usr/libexec/bazzite-autologin
 
 RUN systemctl enable sshd
+RUN mkdir -p /usr/libexec
 COPY drop_ins/* /
+COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
 RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/return-to-gamemode ;\
