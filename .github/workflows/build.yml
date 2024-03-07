@@ -151,9 +151,9 @@ jobs:
         id: meta
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
+            hyperzite
           labels: |
-            org.opencontainers.image.title=${{ env.IMAGE_NAME }}
+            org.opencontainers.image.title=hyperzite
             org.opencontainers.image.version=${{ steps.labels.outputs.VERSION }}
             org.opencontainers.image.description=Hyprzite is an OCI image that serves as an alternative operating system for the Steam Deck, and is heavily based on ublue-os/Bazzite
             io.artifacthub.package.readme-url=https://bazzite.gg/
@@ -166,11 +166,11 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: Hyperzite
+          image: hyperzite
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
-            IMAGE_NAME=Hyperzite
+            IMAGE_NAME=hyperzite
             IMAGE_FLAVOR=${{ env.IMAGE_FLAVOR }}
             IMAGE_VENDOR=${{ github.repository_owner }}
             BASE_IMAGE_NAME=${{ matrix.base_image_name }}
