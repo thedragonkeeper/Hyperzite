@@ -86,6 +86,16 @@ RUN rpm-ostree install fuzzel \
     nano \
     xdg-desktop-portal-hyprland
 
+
+RUN rm -rf \
+    /usr/etc/dconf/db/local.d/02-bazzite-global \
+    /usr/etc/dconf/db/local.d/03-bazzite-dash \
+    /usr/etc/dconf/db/local.d/04-bazzite-folders \
+    /usr/etc/dconf/db/local.d/06-bazzite-theme \
+    /usr/etc/dconf/db/local.d/05-bazzite-extensions \
+    /usr/etc/dconf/db/local.d/07-bazzite-deck
+
+
 RUN systemctl enable sshd
 COPY drop_ins/* /
 
