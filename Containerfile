@@ -59,7 +59,7 @@ RUN rpm-ostree override remove \
     gnome-tweaks \
     libgnomekbd \
     gnome-shell-extension-appindicator \
-    gnome-control-center-filesystem- \
+    gnome-control-center-filesystem \
     gnome-control-center \
     gnome-shell \
     gnome-shell-extension-gsconnect \
