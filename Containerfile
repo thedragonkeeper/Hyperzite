@@ -12,7 +12,7 @@ RUN rpm-ostree install fuzzel \
     dunst \
     nano
 RUN systemctl enable sshd
-COPY system_files/drop_ins/* /
+COPY drop_ins/* /
 
 rpm-ostree initramfs --enable --arg='--add' --arg='fido2'
 rpm-ostree initramfs-etc --force-sync
