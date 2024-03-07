@@ -102,7 +102,8 @@ RUN rm -rf \
     /usr/bin/steamos-session-select \
     /usr/etc/environment \
     /usr/etc/bazzite/initramfs/args.d/00-example.conf \
-    /usr/bin/bazzite-steam
+    /usr/bin/bazzite-steam \
+    /usr/libexec/bazzite-autologin
 
 RUN systemctl enable sshd
 COPY drop_ins/* /
