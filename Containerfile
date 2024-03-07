@@ -84,7 +84,8 @@ RUN rpm-ostree install fuzzel \
     screen \
     dunst \
     nano \
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland \
+    hyprland-protocols-devel
 
 
 RUN rm -rf \
