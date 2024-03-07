@@ -93,8 +93,16 @@ RUN rm -rf \
     /usr/etc/dconf/db/local.d/04-bazzite-folders \
     /usr/etc/dconf/db/local.d/06-bazzite-theme \
     /usr/etc/dconf/db/local.d/05-bazzite-extensions \
-    /usr/etc/dconf/db/local.d/07-bazzite-deck
-
+    /usr/etc/dconf/db/local.d/07-bazzite-deck \
+    /usr/share/xsessions/gnome-xorg-oneshot.desktop \
+    /usr/share/wayland-sessions/gnome-wayland-oneshot.desktop \
+    /usr/bin/gnome-session-oneshot \
+    /usr/bin/gnome-help \
+    /usr/bin/return-to-gamemode \
+    /usr/bin/steamos-session-select \
+    /usr/etc/environment \
+    /usr/etc/bazzite/initramfs/args.d/00-example.conf \
+    /usr/bin/bazzite-steam
 
 RUN systemctl enable sshd
 COPY drop_ins/* /
