@@ -69,7 +69,9 @@ RUN rpm-ostree override remove \
     gvfs-goa \
     webapp-manager \
     python3-xapps-overrides \
-    evolution-data-server
+    evolution-data-server \
+    evolution-data-server-langpacks
+    
 
 RUN rpm-ostree install fuzzel \
     kitty \
