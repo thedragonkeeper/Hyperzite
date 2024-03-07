@@ -1,4 +1,4 @@
-name: Build Bazzite
+name: Build Hyperzite
 on:
   schedule:
     - cron: '40 16 * * 2,5' # 16:40 utc tues thurs
@@ -77,10 +77,6 @@ jobs:
           echo "BASE_IMAGE_NAME=${{ matrix.base_image_name }}" >> $GITHUB_ENV
           echo "BASE_IMAGE_FLAVOR=main" >> $GITHUB_ENV
           echo "IMAGE_FLAVOR=${{ matrix.base_image_flavor }}" >> $GITHUB_ENV
-
-      - name: Set image name
-        run: |
-          IMAGE_NAME=Hyprzite
 
       - name: Generate tags
         id: generate-tags
@@ -170,11 +166,11 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: ${{ env.IMAGE_NAME }}
+          image: Hyperzite
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
-            IMAGE_NAME=${{ env.IMAGE_NAME }}
+            IMAGE_NAME=Hyperzite
             IMAGE_FLAVOR=${{ env.IMAGE_FLAVOR }}
             IMAGE_VENDOR=${{ github.repository_owner }}
             BASE_IMAGE_NAME=${{ matrix.base_image_name }}
