@@ -51,7 +51,7 @@ jobs:
         include:
           - major_version: 39
             is_latest_version: true
-            is_stable_version: false
+            is_stable_version: true
     steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
@@ -147,7 +147,7 @@ jobs:
           labels: |
             org.opencontainers.image.title=hyperzite
             org.opencontainers.image.version=${{ steps.labels.outputs.VERSION }}
-            org.opencontainers.image.description=Hyprzite is an OCI image that serves as an alternative operating system for the Steam Deck, and is heavily based on ublue-os/Bazzite
+            org.opencontainers.image.description=Hyperzite is an OCI image that serves as an alternative operating system for the Steam Deck, and is heavily based on ublue-os/Bazzite
             io.artifacthub.package.readme-url=https://bazzite.gg/
             io.artifacthub.package.logo-url=https://raw.githubusercontent.com/ublue-os/bazzite/main/repo_content/logo.png
 
@@ -158,22 +158,16 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: hyperzite
+          image: "hyperzite"
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
-            IMAGE_NAME=hyperzite
-            IMAGE_FLAVOR=bazzite-deck-gnome
+            IMAGE_NAME="hyperzite"
             IMAGE_VENDOR=${{ github.repository_owner }}
             BASE_IMAGE_NAME=hyperzite
-            BASE_IMAGE_FLAVOR=main
-            FEDORA_MAJOR_VERSION=${{ matrix.major_version }}
-            AKMODS_FLAVOR=${{ env.AKMODS_FLAVOR }}
-            IMAGE_BRANCH=main
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
-          extra-args: |
-            --target=bazzite-deck
+
             
       # - name: Sign kernel
       #   uses: EyeCantCU/kernel-signer@v0.1.3
