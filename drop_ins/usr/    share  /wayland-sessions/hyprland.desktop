@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Hyprland desktop
-Comment=This session logs you into Hyprland desktop
-Exec=/usr/bin/Hyprland-oneshot
-TryExec=/usr/bin/Hyprland-oneshot
-Type=Application
-DesktopNames=Hyprland
-X-GDM-SessionRegisters=true
