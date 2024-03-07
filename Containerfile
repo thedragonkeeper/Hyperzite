@@ -65,7 +65,11 @@ RUN rpm-ostree override remove \
     gdm \
     libgdata \
     nautilus-gsconnect \
-    xapps
+    xapps \
+    gvfs-goa \
+    webapp-manager \
+    python3-xapps-overrides \
+    evolution-data-server
 
 RUN rpm-ostree install fuzzel \
     kitty \
