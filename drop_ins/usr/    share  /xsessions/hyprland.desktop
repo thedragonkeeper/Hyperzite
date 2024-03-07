@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Hyprland desktop
+Comment=This is redundant, Hyprland doesnt work on X11
+Exec=/usr/bin/Hyprland-oneshot
+TryExec=/usr/bin/Hyprland-oneshot
+Type=Application
+DesktopNames=Hyprland
+X-GDM-SessionRegisters=true
