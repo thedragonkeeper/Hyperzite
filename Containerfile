@@ -85,7 +85,10 @@ RUN rpm-ostree install fuzzel \
     dunst \
     nano \
     xdg-desktop-portal-hyprland \
-    hyprland-protocols-devel
+    hyprland-protocols-devel \
+    nwg-panel \
+    nwg-wrapper
+    
 
 
 RUN rm -rf \
