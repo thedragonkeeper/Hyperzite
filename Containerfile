@@ -6,7 +6,6 @@ RUN rpm-ostree override remove \
     gnome-remote-desktop \
     fedora-chromium-config-gnome \
     f39-backgrounds-gnome \
-    gnome-desktop3 \
     gnome-desktop4 \
     gnome-settings-daemon \
     gnome-session \
@@ -60,7 +59,13 @@ RUN rpm-ostree override remove \
     gnome-shell-extension-system76-scheduler \
     gnome-shell-extension-user-theme \
     steamdeck-gnome-presets \
-    gnome-shell-extension-caribou-blocker
+    gnome-shell-extension-caribou-blocker \
+    nautilus \
+    mutter \
+    gdm \
+    libgdata \
+    nautilus-gsconnect \
+    xapps
 
 RUN rpm-ostree install fuzzel \
     kitty \
