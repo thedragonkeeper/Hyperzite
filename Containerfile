@@ -1,19 +1,5 @@
 FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS hyprzite
 
-RUN rpm-ostree install fuzzel \
-    kitty \
-    hyprland \
-    fontawesome-fonts-all \
-    ranger \
-    ncdu \
-    python3-beautifulsoup4 \
-    scanmem \
-    screen \
-    dunst \
-    nano
-RUN systemctl enable sshd
-COPY drop_ins/* /
-
 RUN rpm-ostree override remove \
     gnome-menus \
     pinentry-gnome3 \
@@ -22,7 +8,7 @@ RUN rpm-ostree override remove \
     f39-backgrounds-gnome \
     gnome-desktop3 \
     gnome-desktop4 \
-    gnome-settings \
+    gnome-settings-daemon \
     gnome-session \
     xdg-desktop-portal-gnome \
     gnome-bluetooth-libs \
@@ -76,8 +62,21 @@ RUN rpm-ostree override remove \
     steamdeck-gnome-presets \
     gnome-shell-extension-caribou-blocker
 
+RUN rpm-ostree install fuzzel \
+    kitty \
+    hyprland \
+    fontawesome-fonts-all \
+    ranger \
+    ncdu \
+    python3-beautifulsoup4 \
+    scanmem \
+    screen \
+    dunst \
+    nano \
+    xdg-desktop-portal-hyprland
 
-RUN rpm-ostree install xdg-desktop-portal-hyprland
+RUN systemctl enable sshd
+COPY drop_ins/* /
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
