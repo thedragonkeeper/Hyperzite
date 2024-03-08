@@ -115,9 +115,7 @@ COPY drop_ins/* /
 COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
 RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
-    chmod +x /usr/bin/return-to-gamemode ;\
-    chmod +x /usr/bin/steamos-session-select ;\
-    chmod +x /usr/bin/Hyprland-oneshot
+    chmod +x /usr/bin/steamos-session-select
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
