@@ -1,6 +1,3 @@
-rpm-ostree initramfs --enable --arg='--add' --arg='fido2'
-rpm-ostree initramfs-etc --force-sync
-
 FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS hyprzite
 
 RUN rpm-ostree override remove \
