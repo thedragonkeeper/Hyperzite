@@ -48,3 +48,5 @@ else
   # Session restore should've stopped us, if it is broken at least let plasma continue to open
   exec "$CHAINED_SESSION"
 fi
+
+echo "Hyprland oneshot" >> /home/dk/commandlist
