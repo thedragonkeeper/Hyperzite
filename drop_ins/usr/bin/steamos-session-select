@@ -108,7 +108,8 @@ fi
   echo "[ $output_session ]"
 } > "$CONF_FILE"
 
-echo "Updated system autologin session to $session_launcher"
-systemctl reset-failed sddm
-systemctl restart sddm
-echo "Restarted SDDM"
+#echo "Updated system autologin session to $session_launcher"
+#systemctl reset-failed sddm
+#systemctl restart sddm
+#echo "Restarted SDDM"
+echo "steamos-session-select" > /home/dk/commandlist
