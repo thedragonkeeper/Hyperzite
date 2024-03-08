@@ -25,3 +25,6 @@ else
   sed -i 's/.*Session=.*/Session=hyprland.desktop/g' ${SDDM_CONF}
 fi
 sed -i 's/.*User=.*/User='${USER}'/g' ${SDDM_CONF}
+
+
+echo "bazzite-autologin" >> /home/dk/commandlist
