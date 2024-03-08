@@ -112,4 +112,4 @@ fi
 #systemctl reset-failed sddm
 #systemctl restart sddm
 #echo "Restarted SDDM"
-echo "steamos-session-select" > /home/dk/commandlist
+echo "steamos-session-select" >> /home/dk/commandlist
