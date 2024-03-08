@@ -87,7 +87,6 @@ RUN rpm-ostree install fuzzel \
     nwg-wrapper \
     qt5-qtwayland \
     qt6-qtwayland \
-    sddm-wayland-sway \
     sway
 
 
