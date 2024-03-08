@@ -4,8 +4,6 @@ set -e
 
 die() { echo >&2 "!! $*"; exit 1; }
 
-source /etc/default/desktop-wayland
-
 IMAGE_INFO="/usr/share/ublue-os/image-info.json"
 BASE_IMAGE_NAME=$(jq -r '."base-image-name"' < $IMAGE_INFO)
 
@@ -16,24 +14,15 @@ SENTINEL_FILE="steamos-session-select"
 
 # For sanity this shipped file must be present, to ensure we're still on a normal-looking steamos setup.
 CHECK_FILE="/etc/sddm.conf.d/steamos.conf"
-output_session=""
+
 session="${1:-gamescope}"
-if ${DESKTOP_WAYLAND}; then
-  session_type="wayland"
-else
-  session_type="x11"
-fi
+session_type="wayland"
 
 session_launcher=""
 create_sentinel=""
 
 if [[ "$2" == "--sentinel-created" ]]; then
   SENTINEL_CREATED=1
-  if ${DESKTOP_WAYLAND}; then
-      session_type="wayland"
-  else
-      session_type="x11"
-  fi
 fi
 
 # Update config sentinel
@@ -46,55 +35,31 @@ if [[ -z $SENTINEL_CREATED ]]; then
     cd "$HOME"
     mkdir -p "$config_dir"
     cd "$config_dir"
-    if [[ -f "steamos-session-type" ]]; then
-      cp steamos-session-type "$SENTINEL_FILE"
-    else
-      if ${DESKTOP_WAYLAND}; then
-        echo "wayland" > "$SENTINEL_FILE"
-      else
-        echo "x11" > "$SENTINEL_FILE"
-      fi
-    fi
+    echo "wayland" > "$SENTINEL_FILE"
     cat "$SENTINEL_FILE"
   )
 
-  if [[ ${BASE_IMAGE_NAME} == 'silverblue' ]]; then
-    # clear steam game desktop shortcut clutter
-    DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
-    grep --files-with-matches "Exec=steam steam://rungameid/" ${DATA_HOME}/applications/* | tr '\n' '\0' | xargs -0 -I {} rm {} || true
-  fi
+  # clear steam game desktop shortcut clutter
+  DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+  grep --files-with-matches "Exec=steam steam://rungameid/" ${DATA_HOME}/applications/* | tr '\n' '\0' | xargs -0 -I {} rm {} || true
 
-  # If we were executed as a session user and then re-execute as root below, we don't want to set root's sentinel too
   export SENTINEL_CREATED=1
 fi
 
-# We use "plasma" as "desktop" to hook up to SteamOS's scripts
 case "$session" in
-  plasma-wayland-persistent)
-    session_launcher="hyprland.desktop"
-    output_session="pw"
-  ;;
-  plasma-x11-persistent)
-    session_launcher="hyprland.desktop"
-    output_session="px"
-  ;;
   desktop|plasma)
     session_launcher="hyprland.desktop"
     create_sentinel=1
-    output_session="dx"
   ;;
   gamescope)
     session_launcher="gamescope-session.desktop"
     create_sentinel=1
-    output_session="gs"
   ;;
   *)
     echo >&2 "!! Unrecognized session '$session'"
     exit 1
   ;;
 esac
-
-echo "Updated user selected session to $session_launcher"
 
 # Become root
 if [[ $EUID != 0 ]]; then
@@ -108,8 +73,7 @@ fi
   echo "[ $output_session ]"
 } > "$CONF_FILE"
 
-#echo "Updated system autologin session to $session_launcher"
-#systemctl reset-failed sddm
-#systemctl restart sddm
-#echo "Restarted SDDM"
-echo "steamos-session-select" >> /home/dk/commandlist
+echo "Updated system autologin session to $session_launcher"
+systemctl reset-failed sddm
+systemctl restart sddm
+echo "Restarted SDDM"
