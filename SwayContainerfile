@@ -63,6 +63,7 @@ RUN rpm-ostree override remove \
     nautilus \
     mutter \
     gdm \
+    gdbus \
     libgdata \
     nautilus-gsconnect \
     xapps \
@@ -72,7 +73,7 @@ RUN rpm-ostree override remove \
     evolution-data-server \
     evolution-data-server-langpacks
 
-RUN rpm-ostree install fuzzel \
+RUN rpm-ostree install \
     ranger \
     ncdu \
     python3-beautifulsoup4 \
@@ -90,7 +91,8 @@ RUN rpm-ostree install fuzzel \
     qt5-qtwayland \
     qt6-qtwayland \
     sway \
-    kitty
+    kitty \
+    nwg-launchers
 
 
 RUN rm -rf \
