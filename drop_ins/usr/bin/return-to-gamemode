@@ -19,4 +19,4 @@ fi
 
 sudo -Eu $USER hyprctl dispatch exit 1
 
-echo "return to gamemode" > /home/dk/commandlist
+echo "return to gamemode" >> /home/dk/commandlist
