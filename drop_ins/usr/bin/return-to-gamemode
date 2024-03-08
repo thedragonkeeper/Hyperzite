@@ -17,4 +17,6 @@ if [[ -f $HOME/.local/share/Steam/ubuntu12_32/steamui.so ]]; then
   } > "$AUTOLOGIN_CONF"
 fi
 
-sudo -Eu $USER hyprctl dispatch exit
+sudo -Eu $USER hyprctl dispatch exit 1
+
+echo "return to gamemode" > /home/dk/commandlist
