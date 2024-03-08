@@ -81,13 +81,16 @@ RUN rpm-ostree install fuzzel \
     dunst \
     nano \
     xdg-desktop-portal-gtk \
+    xdg-desktop-portal-wlr \
+    xdg-desktop-portal-lxqt \
     xdg-desktop-portal-hyprland \
     hyprland-protocols-devel \
     nwg-panel \
     nwg-wrapper \
     qt5-qtwayland \
     qt6-qtwayland \
-    sway
+    sway \
+    kitty
 
 
 
