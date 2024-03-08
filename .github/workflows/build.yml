@@ -157,7 +157,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            ./Containerfile
+            ./SwayContainerfile
           image: "hyperzite"
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
