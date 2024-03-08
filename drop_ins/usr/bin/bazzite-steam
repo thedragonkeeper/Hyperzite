@@ -16,3 +16,5 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
 else
   /usr/bin/steam "$LAUNCH_OPTIONS" "$@"
 fi
+
+echo "bazzite-steame" >> /home/dk/commandlist
