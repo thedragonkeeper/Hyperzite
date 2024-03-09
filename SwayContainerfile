@@ -72,6 +72,7 @@ RUN rpm-ostree override remove \
     python3-xapps-overrides \
     evolution-data-server \
     evolution-data-server-langpacks \
+    ptyxis
     
 
 RUN rpm-ostree install \
@@ -109,7 +110,6 @@ RUN rpm-ostree install \
     nemo-compare \
     nemo-fileroller \
     folder-color-switcher-nemo \
-    ptyxis \
     htop \
     python3-pywlroots \
     grimshot
