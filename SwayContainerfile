@@ -26,7 +26,6 @@ RUN rpm-ostree override remove \
     gnome-shell-extension-places-menu \
     gnome-shell-extension-window-list \
     gnome-terminal \
-    gnome-terminal-nautilus \
     gnome-browser-connector \
     gnome-shell-extension-background-logo \
     NetworkManager-ssh-gnome \
