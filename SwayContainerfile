@@ -91,7 +91,10 @@ RUN rpm-ostree install \
     qt6-qtwayland \
     sway \
     kitty \
-    nwg-launchers
+    nwg-launchers \
+    plymouth-theme-breeze.x86_64 \
+    plymouth-plugin-script.x86_64
+    
 
 
 RUN rm -rf \
