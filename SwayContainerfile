@@ -26,6 +26,7 @@ RUN rpm-ostree override remove \
     gnome-shell-extension-places-menu \
     gnome-shell-extension-window-list \
     gnome-terminal \
+    gnome-terminal-nautilus \
     gnome-browser-connector \
     gnome-shell-extension-background-logo \
     NetworkManager-ssh-gnome \
@@ -70,7 +71,8 @@ RUN rpm-ostree override remove \
     webapp-manager \
     python3-xapps-overrides \
     evolution-data-server \
-    evolution-data-server-langpacks
+    evolution-data-server-langpacks \
+    
 
 RUN rpm-ostree install \
     ranger \
@@ -93,7 +95,26 @@ RUN rpm-ostree install \
     kitty \
     nwg-launchers \
     plymouth-theme-breeze.x86_64 \
-    plymouth-plugin-script.x86_64
+    plymouth-plugin-script.x86_64 \
+    squeekboard \
+    nemo \
+    nemo-seahorse \
+    nemo-python-devel \
+    nemo-devel \
+    nemo-preview \
+    nemo-search-helpers \
+    nemo-image-converter \
+    nemo-extensions \
+    nemo-emblems \
+    nemo-compare \
+    nemo-fileroller \
+    folder-color-switcher-nemo \
+    ptyxis \
+    htop \
+    python3-pywlroots \
+    grimshot
+
+    
     
 
 
@@ -122,7 +143,7 @@ RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select
 
-sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /etc/os-release
+sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
 sed -i 's/Bazzite/Hyperzite - Based on Bazzite/g' /usr/share/ublue-os/bazzite/neofetch.conf
 sed -i 's/# info "Local IP"/info "Local IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
 sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
