@@ -86,7 +86,7 @@ RUN rpm-ostree install \
     xdg-desktop-portal-lxqt \
     xdg-desktop-portal-hyprland \
     hyprland-protocols-devel \
-    nwg-shell \
+    nwg-panel \
     wlr-randr \
     nwg-wrapper \
     qt5-qtwayland \
@@ -111,7 +111,11 @@ RUN rpm-ostree install \
     folder-color-switcher-nemo \
     htop \
     python3-pywlroots \
-    grimshot
+    grimshot \
+    gtk-layer-shell \
+    gtk3 \
+    gtk4 \
+    
 
     
     
