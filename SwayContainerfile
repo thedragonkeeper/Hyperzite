@@ -147,6 +147,7 @@ RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select
 
+echo "Defaults insults" >> /usr/etc/sudoers
 #sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
 #sed -i 's/Bazzite/Hyperzite - Based on Bazzite/g' /usr/share/ublue-os/bazzite/neofetch.conf
 #sed -i 's/# info "Local IP"/info "Local IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
