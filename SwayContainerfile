@@ -1,5 +1,7 @@
 FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS hyprzite
 
+RUN curl -sL -o /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:erikreider:SwayNotificationCenter.repo https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
+
 RUN rpm-ostree override remove \
     gnome-menus \
     pinentry-gnome3 \
@@ -117,8 +119,7 @@ RUN rpm-ostree install \
     gtk4 \
     egl-wayland
     
-RUN rpm-ostree install https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
-    
+RUN rpm-ostree install SwayNotificationCenter 
     
 
 
