@@ -117,9 +117,7 @@ RUN rpm-ostree install \
     gtk4 \
     egl-wayland
     
-RUN rpm-ostree install \
-    --from repo=opr.fedorainfracloud.org:erikreider:SwayNotificationCenter \
-        SwayNotificationCenter
+RUN rpm-ostree install https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
     
     
 
