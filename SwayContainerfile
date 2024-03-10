@@ -114,7 +114,8 @@ RUN rpm-ostree install \
     grimshot \
     gtk-layer-shell \
     gtk3 \
-    gtk4
+    gtk4 \
+    egl-wayland
     
 
     
