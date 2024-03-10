@@ -80,14 +80,14 @@ RUN rpm-ostree install \
     python3-beautifulsoup4 \
     scanmem \
     screen \
-    dunst \
     nano \
     xdg-desktop-portal-gtk \
     xdg-desktop-portal-wlr \
     xdg-desktop-portal-lxqt \
     xdg-desktop-portal-hyprland \
     hyprland-protocols-devel \
-    nwg-panel \
+    nwg-shell \
+    wlr-randr \
     nwg-wrapper \
     qt5-qtwayland \
     qt6-qtwayland \
