@@ -73,8 +73,7 @@ RUN rpm-ostree override remove \
     python3-xapps-overrides \
     evolution-data-server \
     evolution-data-server-langpacks \
-    ptyxis \
-    binutils
+    ptyxis
     
 
 RUN rpm-ostree install \
@@ -152,10 +151,14 @@ RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select
 
-#sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
-#sed -i 's/Bazzite/Hyperzite - Based on Bazzite/g' /usr/share/ublue-os/bazzite/neofetch.conf
-#sed -i 's/# info "Local IP"/info "Local IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
-#sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
+## fix ld
+RUN ln -sf /usr/bin/ld.bfd /etc/alternatives/ld
+RUN ln -sf /etc/alternatives/ld /usr/bin/ld
+##
+RUN sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
+RUN sed -i 's/Bazzite/Hyperzite - Based on Bazzite/g' /usr/share/ublue-os/bazzite/neofetch.conf
+RUN sed -i 's/# info "Local IP"/info "Local IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
+RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
