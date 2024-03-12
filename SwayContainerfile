@@ -118,10 +118,10 @@ RUN rpm-ostree install \
     gtk4 \
     egl-wayland \
     maliit-keyboard \
-    maliit-framework-qt5 \
-    binutils
+    maliit-framework-qt5
     
-RUN rpm-ostree install SwayNotificationCenter 
+RUN rpm-ostree install SwayNotificationCenter
+RUN rpm-ostree override replace binutils
     
 
 
