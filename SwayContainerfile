@@ -116,7 +116,9 @@ RUN rpm-ostree install \
     gtk-layer-shell \
     gtk3 \
     gtk4 \
-    egl-wayland
+    egl-wayland \
+    maliit-keyboard \
+    maliit-framework-qt5
     
 RUN rpm-ostree install SwayNotificationCenter 
     
