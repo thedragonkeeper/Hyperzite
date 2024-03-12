@@ -73,7 +73,8 @@ RUN rpm-ostree override remove \
     python3-xapps-overrides \
     evolution-data-server \
     evolution-data-server-langpacks \
-    ptyxis
+    ptyxis \
+    binutils
     
 
 RUN rpm-ostree install \
@@ -120,8 +121,8 @@ RUN rpm-ostree install \
     maliit-keyboard \
     maliit-framework-qt5
     
-RUN rpm-ostree install SwayNotificationCenter
-RUN rpm-ostree override replace binutils
+RUN rpm-ostree install SwayNotificationCenter \
+    binutils
     
 
 
