@@ -98,7 +98,6 @@ RUN rpm-ostree install \
     nwg-launchers \
     plymouth-theme-breeze.x86_64 \
     plymouth-plugin-script.x86_64 \
-    squeekboard \
     nemo \
     nemo-seahorse \
     nemo-python-devel \
