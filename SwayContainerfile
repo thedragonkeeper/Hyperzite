@@ -2,6 +2,17 @@ FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS hyprzite
 
 RUN curl -sL -o /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:erikreider:SwayNotificationCenter.repo https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
 
+## tidy some files:
+RUN rm -rf \
+    /usr/lib/gnome-settings-daemon-3.0 \
+    /usr/etc/skel/.local/share/org.gnome.Ptyxis \
+    /usr/lib/systemd/user/*gnome*
+    /usr/libexec/gnome-desktop-debug
+    /usr/share/GConf/gsettings
+    /usr/share/sounds/gnome
+    /usr/share/terminfo/g/gnome*
+    /usr/share/themes/Bazzite/gnome-shell
+
 RUN rpm-ostree override remove \
     gnome-menus \
     pinentry-gnome3 \
@@ -16,7 +27,6 @@ RUN rpm-ostree override remove \
     gnome-bluetooth \
     gnome-keyring \
     gnome-autoar \
-    gnome-online-accounts \
     gnome-software \
     gnome-keyring-pam \
     gnome-color-manager \
@@ -74,7 +84,6 @@ RUN rpm-ostree override remove \
     evolution-data-server \
     evolution-data-server-langpacks \
     ptyxis
-    
 
 RUN rpm-ostree install \
     ranger \
@@ -118,12 +127,19 @@ RUN rpm-ostree install \
     gtk4 \
     egl-wayland \
     maliit-keyboard \
-    maliit-framework-qt5
+    maliit-framework-qt5 \
+    gedit
     
 RUN rpm-ostree install SwayNotificationCenter \
     binutils
-    
 
+
+RUN rpm-ostree override remove \
+    gnome-text-editor \
+    nautilus-python \
+    mutter-common \
+    google-benchmark \
+    gnome-online-accounts
 
 RUN rm -rf \
     /usr/etc/dconf/db/local.d/02-bazzite-global \
@@ -160,6 +176,8 @@ RUN sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
 RUN sed -i 's/Bazzite/Hyperzite - Based on Bazzite/g' /usr/share/ublue-os/bazzite/neofetch.conf
 RUN sed -i 's/# info "Local IP"/info "Local IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
 RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite/neofetch.conf
+
+RUN pip3 uninstall hyfetch
 
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
