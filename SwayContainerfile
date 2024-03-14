@@ -103,8 +103,6 @@ RUN rpm-ostree install \
     xdg-desktop-portal-gtk \
     xdg-desktop-portal-wlr \
     xdg-desktop-portal-lxqt \
-    xdg-desktop-portal-hyprland \
-    hyprland-protocols-devel \
     nwg-panel \
     wlr-randr \
     nwg-wrapper \
@@ -126,7 +124,6 @@ RUN rpm-ostree install \
     nemo-emblems \
     nemo-compare \
     nemo-fileroller \
-    folder-color-switcher-nemo \
     htop \
     python3-pywlroots \
     grimshot \
@@ -182,7 +179,7 @@ RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite
 
 
 ##################################################### remove anything for python
-RUN pip3 uninstall hyfetch
+RUN pip3 uninstall -y hyfetch
 
 
 ################################################## cleanup and commit image
