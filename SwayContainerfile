@@ -87,7 +87,8 @@ RUN rpm-ostree override remove \
     ptyxis \
     nautilus-python \
     mutter-common \
-    google-benchmark \
+    nautilus-open-any-terminal \
+    nautilus-extensions \
     gnome-online-accounts
 
 
