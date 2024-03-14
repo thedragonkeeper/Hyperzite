@@ -89,8 +89,7 @@ RUN rpm-ostree override remove \
     nautilus-python \
     mutter-common \
     google-benchmark \
-    gnome-online-accounts \
-    gnome-online-accounts-3.48
+    gnome-online-accounts
 
 
 ################################################### install stuff
