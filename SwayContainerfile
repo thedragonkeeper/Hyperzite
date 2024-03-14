@@ -165,7 +165,8 @@ COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
 RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select ; \
-    chmod +x /usr/bin/wvkbd
+    chmod +x /usr/bin/wvkbd ;\
+    chmod +x /usr/share/applications/*
 
 ################################################## fix ld, alternatives currently broken
 RUN ln -sf /usr/bin/ld.bfd /etc/alternatives/ld
