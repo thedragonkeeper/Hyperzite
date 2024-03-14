@@ -2,6 +2,9 @@ FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS hyprzite
 
 RUN curl -sL -o /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:erikreider:SwayNotificationCenter.repo https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
 
+RUN rpm-ostree override remove \
+    gvfs-goa \
+    gnome-online-accounts
 ####################################################### tidy some files:
 RUN rm -rf \
     /usr/lib/gnome-settings-daemon-3.0 \
@@ -88,8 +91,7 @@ RUN rpm-ostree override remove \
     gnome-text-editor \
     nautilus-python \
     mutter-common \
-    google-benchmark \
-    gnome-online-accounts
+    google-benchmark
 
 
 ################################################### install stuff
