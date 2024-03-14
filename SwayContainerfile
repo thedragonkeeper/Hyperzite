@@ -134,14 +134,11 @@ RUN rpm-ostree install \
     gtk3 \
     gtk4 \
     egl-wayland \
-    maliit-keyboard \
-    maliit-framework-qt5 \
     gedit \
     SwayNotificationCenter \
-    binutils
+    binutils \
+    yt-dlp
 
-RUN rpm-ostree override remove \
-    gnome-text-editor
 #################################################### delete files wont need or will replace
 RUN rm -rf \
     /usr/etc/dconf/db/local.d/02-bazzite-global \
