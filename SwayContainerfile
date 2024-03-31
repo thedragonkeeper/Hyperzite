@@ -127,7 +127,16 @@ RUN rpm-ostree install \
     SwayNotificationCenter \
     binutils \
     yt-dlp \
-    blivet-gui
+    egl-wayland-devel \
+    wayland-devel \
+    python3-cairo-devel \
+    libxkbcommon-devel \
+    pangomm-devel \
+    python3-devel \
+    qt6-linguist \
+    cairo-devel \
+    gobject-introspection-devel \
+    cairo-gobject-devel
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
