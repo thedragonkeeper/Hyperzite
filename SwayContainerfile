@@ -159,7 +159,8 @@ RUN rm -rf \
     /usr/etc/environment \
     /usr/etc/bazzite/initramfs/args.d/00-example.conf \
     /usr/bin/bazzite-steam \
-    /usr/libexec/bazzite-autologin
+    /usr/libexec/bazzite-autologin \
+    /usr/share/wayland-sessions/sway.desktop
 
 
 
