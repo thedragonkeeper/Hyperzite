@@ -136,7 +136,8 @@ RUN rpm-ostree install \
     qt6-linguist \
     cairo-devel \
     gobject-introspection-devel \
-    cairo-gobject-devel
+    cairo-gobject-devel \
+    gdb
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
