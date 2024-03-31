@@ -91,12 +91,8 @@ RUN rpm-ostree override remove \
     nautilus-extensions \
     gnome-online-accounts \
     gnome-themes-extra \
-    libgnomekbd \
-    desktop-backgrounds-gnome \
     cinnamon-desktop \
-    gnome-desktop3 \
-    pinentry-gnome3 \
-    f39-backgrounds-gnome
+    gnome-desktop3
 
 
 ################################################### install stuff
