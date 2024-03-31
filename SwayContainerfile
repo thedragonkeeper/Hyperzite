@@ -12,7 +12,9 @@ RUN rm -rf \
     /usr/share/sounds/gnome \
     /usr/share/terminfo/g/gnome* \
     /usr/share/themes/Bazzite/gnome-shell \
-    /usr/share/dbus-1/system-services/net.hadess.PowerProfiles.service
+    /usr/share/dbus-1/system-services/net.hadess.PowerProfiles.service \
+    /usr/share/dbus-1/system.d/net.hadess.PowerProfiles.conf \
+    /usr/share/polkit-1/actions/net.hadess.PowerProfiles.policy
 
 
 #######################################################  remove junk
