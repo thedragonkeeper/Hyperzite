@@ -89,7 +89,14 @@ RUN rpm-ostree override remove \
     mutter-common \
     nautilus-open-any-terminal \
     nautilus-extensions \
-    gnome-online-accounts
+    gnome-online-accounts \
+    gnome-themes-extra \
+    libgnomekbd \
+    desktop-backgrounds-gnome \
+    cinnamon-desktop \
+    gnome-desktop3 \
+    pinentry-gnome3 \
+    f39-backgrounds-gnome
 
 
 ################################################### install stuff
