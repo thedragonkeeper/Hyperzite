@@ -184,7 +184,7 @@ RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite
 RUN pip3 uninstall -y hyfetch
 
 ##################################################### onscreen keyboard 
-RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rf -rf wvkbd
+RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
 RUN chmod +x /usr/bin/wvkbd
 
 ################################################## cleanup and commit image
