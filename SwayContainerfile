@@ -19,6 +19,7 @@ RUN rm -rf \
 
 #######################################################  remove junk
 RUN rpm-ostree override remove \
+    power-profiles-daemon \
     gnome-menus \
     pinentry-gnome3 \
     gnome-remote-desktop \
