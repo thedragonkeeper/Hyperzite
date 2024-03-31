@@ -90,8 +90,7 @@ RUN rpm-ostree override remove \
     mutter-common \
     nautilus-open-any-terminal \
     nautilus-extensions \
-    gnome-online-accounts \
-    gnome-themes-extra 
+    gnome-online-accounts 
 
 
 ################################################### install stuff
