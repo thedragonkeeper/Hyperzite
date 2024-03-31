@@ -176,6 +176,8 @@ RUN pip3 uninstall -y hyfetch
 
 
 ################################################## cleanup and commit image
+RUN rm -rf /usr/share/rpm/*
+RUN rpmdb --initdb
 RUN rpmdb --rebuilddb
 RUN rpmdb --verifydb
 RUN rm -rf /tmp/* /var/* && \
