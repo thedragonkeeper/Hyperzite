@@ -126,7 +126,13 @@ RUN rpm-ostree install \
     gedit \
     SwayNotificationCenter \
     binutils \
-    yt-dlp
+    yt-dlp \
+    blivet-gui \
+    egl-wayland-devel \
+    wayland-devel \
+    python3-cairo-devel \
+    libxkbcommon-devel \
+    pangomm-devel
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
@@ -157,7 +163,6 @@ COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
 RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select ; \
-    chmod +x /usr/bin/wvkbd ;\
     chmod +x /usr/share/applications/*
 
 ################################################## fix ld, alternatives currently broken
@@ -174,11 +179,9 @@ RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite
 ##################################################### remove anything for python
 RUN pip3 uninstall -y hyfetch
 
-
+##################################################### onscreen keyboard 
+RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rf -rf wvkbd
+RUN chmod +x /usr/bin/wvkbd
 ################################################## cleanup and commit image
-RUN rm -rf /usr/share/rpm/*
-RUN rpmdb --initdb
-RUN rpmdb --rebuilddb
-RUN rpmdb --verifydb
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
