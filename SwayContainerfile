@@ -160,7 +160,9 @@ RUN rm -rf \
     /usr/etc/bazzite/initramfs/args.d/00-example.conf \
     /usr/bin/bazzite-steam \
     /usr/libexec/bazzite-autologin \
-    /usr/share/wayland-sessions/sway.desktop
+    /usr/share/wayland-sessions/sway.desktop \
+    /usr/etc/profile.d/bazzite-neofetch.sh \
+    /usr/etc/profile.d/brew.sh
 
 
 
