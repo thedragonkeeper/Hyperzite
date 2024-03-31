@@ -14,73 +14,6 @@ RUN rm -rf \
     /usr/share/themes/Bazzite/gnome-shell 
 
 
-################################################### install stuff
-RUN rpm-ostree install \
-    ranger \
-    ncdu \
-    python3-beautifulsoup4 \
-    scanmem \
-    screen \
-    nano \
-    xdg-desktop-portal-gtk \
-    xdg-desktop-portal-wlr \
-    xdg-desktop-portal-lxqt \
-    nwg-panel \
-    wlr-randr \
-    nwg-wrapper \
-    qt5-qtwayland \
-    qt6-qtwayland \
-    sway \
-    kitty \
-    nwg-launchers \
-    plymouth-theme-breeze.x86_64 \
-    plymouth-plugin-script.x86_64 \
-    nemo \
-    nemo-seahorse \
-    nemo-python-devel \
-    nemo-devel \
-    nemo-preview \
-    nemo-search-helpers \
-    nemo-image-converter \
-    nemo-extensions \
-    nemo-emblems \
-    nemo-compare \
-    nemo-fileroller \
-    htop \
-    python3-pywlroots \
-    grimshot \
-    gtk-layer-shell \
-    gtk3 \
-    gtk4 \
-    egl-wayland \
-    gedit \
-    SwayNotificationCenter \
-    binutils \
-    yt-dlp
-
-#################################################### delete files wont need or will replace
-RUN rm -rf \
-    /usr/etc/dconf/db/local.d/02-bazzite-global \
-    /usr/etc/dconf/db/local.d/03-bazzite-dash \
-    /usr/etc/dconf/db/local.d/04-bazzite-folders \
-    /usr/etc/dconf/db/local.d/06-bazzite-theme \
-    /usr/etc/dconf/db/local.d/05-bazzite-extensions \
-    /usr/etc/dconf/db/local.d/07-bazzite-deck \
-    /usr/share/xsessions/gnome-xorg-oneshot.desktop \
-    /usr/share/wayland-sessions/gnome-wayland-oneshot.desktop \
-    /usr/bin/gnome-session-oneshot \
-    /usr/bin/gnome-help \
-    /usr/bin/return-to-gamemode \
-    /usr/bin/steamos-session-select \
-    /usr/etc/environment \
-    /usr/etc/bazzite/initramfs/args.d/00-example.conf \
-    /usr/bin/bazzite-steam \
-    /usr/libexec/bazzite-autologin
-
-
-
-
-
 #######################################################  remove junk
 RUN rpm-ostree override remove \
     gnome-menus \
@@ -158,11 +91,63 @@ RUN rpm-ostree override remove \
     nautilus-open-any-terminal \
     nautilus-extensions \
     gnome-online-accounts \
-    gnome-themes-extra \
-    cinnamon-desktop \
-    gnome-desktop3
+    gnome-themes-extra 
 
 
+################################################### install stuff
+RUN rpm-ostree install \
+    ranger \
+    ncdu \
+    python3-beautifulsoup4 \
+    scanmem \
+    screen \
+    nano \
+    xdg-desktop-portal-gtk \
+    xdg-desktop-portal-wlr \
+    xdg-desktop-portal-lxqt \
+    nwg-panel \
+    wlr-randr \
+    nwg-wrapper \
+    qt5-qtwayland \
+    qt6-qtwayland \
+    sway \
+    kitty \
+    nwg-launchers \
+    plymouth-theme-breeze.x86_64 \
+    plymouth-plugin-script.x86_64 \
+    thunar \
+    thunar-volman \
+    thunar-archive-plugin \
+    htop \
+    python3-pywlroots \
+    grimshot \
+    gtk-layer-shell \
+    gtk3 \
+    gtk4 \
+    egl-wayland \
+    gedit \
+    SwayNotificationCenter \
+    binutils \
+    yt-dlp
+
+#################################################### delete files wont need or will replace
+RUN rm -rf \
+    /usr/etc/dconf/db/local.d/02-bazzite-global \
+    /usr/etc/dconf/db/local.d/03-bazzite-dash \
+    /usr/etc/dconf/db/local.d/04-bazzite-folders \
+    /usr/etc/dconf/db/local.d/06-bazzite-theme \
+    /usr/etc/dconf/db/local.d/05-bazzite-extensions \
+    /usr/etc/dconf/db/local.d/07-bazzite-deck \
+    /usr/share/xsessions/gnome-xorg-oneshot.desktop \
+    /usr/share/wayland-sessions/gnome-wayland-oneshot.desktop \
+    /usr/bin/gnome-session-oneshot \
+    /usr/bin/gnome-help \
+    /usr/bin/return-to-gamemode \
+    /usr/bin/steamos-session-select \
+    /usr/etc/environment \
+    /usr/etc/bazzite/initramfs/args.d/00-example.conf \
+    /usr/bin/bazzite-steam \
+    /usr/libexec/bazzite-autologin
 
 
 
