@@ -132,7 +132,12 @@ RUN rpm-ostree install \
     wayland-devel \
     python3-cairo-devel \
     libxkbcommon-devel \
-    pangomm-devel
+    pangomm-devel \
+    python3-devel \
+    qt6-linguist \
+    cairo-devel \
+    gobject-introspection-devel \
+    cairo-gobject-devel
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
@@ -182,6 +187,7 @@ RUN pip3 uninstall -y hyfetch
 ##################################################### onscreen keyboard 
 RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rf -rf wvkbd
 RUN chmod +x /usr/bin/wvkbd
+
 ################################################## cleanup and commit image
 RUN rm -rf /tmp/* /var/* && \
   ostree container commit
