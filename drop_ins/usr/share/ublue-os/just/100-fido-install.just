@@ -1,9 +1,11 @@
 # vim: set ft=make :
 
-alias upgrade := fido2
-# Setup Fido on Encrypted Filesystem
+alias fido2 := fido2
+
+# Update system, flatpaks, and containers all at once
 fido2:
-    sudo systemd-cryptenroll --fido2-device=auto --fido2-with-user-verification=true /dev/nvme0n1p3
+    #!/usr/bin/bash
+    sudo systemd-cryptenroll --fido2-device=auto --fido2-with-user-verification=true --fido-with-client-pin=false /dev/nvme0n1p3
     sudo sed -i 's/discard/discard,fido2-device=auto/g' /etc/crypttab
     sudo cryptsetup config --key-slot 0 --priority ignore /dev/nvme0n1p3
     sudo cryptsetup config --key-slot 1 --priority prefer /dev/nvme0n1p3
