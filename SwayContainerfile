@@ -140,7 +140,8 @@ RUN rpm-ostree install \
     cairo-devel \
     gobject-introspection-devel \
     cairo-gobject-devel \
-    gdb
+    gdb \
+    network-manager-applet
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
