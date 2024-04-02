@@ -194,6 +194,7 @@ RUN sed -i 's/# info "Public IP"/info "Public IP"/g' /usr/share/ublue-os/bazzite
 ##################################################### remove anything for python
 RUN pip3 uninstall -y hyfetch
 ##################################################### add anything for python
+RUN mkdir -p /usr/local/lib64
 RUN pip3 install paramiko
 ##################################################### onscreen keyboard 
 RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
