@@ -1,7 +1,5 @@
 # vim: set ft=make :
 
-alias fido2 := fido2
-
 # Update system, flatpaks, and containers all at once
 fido2:
     #!/usr/bin/bash
