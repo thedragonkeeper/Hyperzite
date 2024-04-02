@@ -141,7 +141,8 @@ RUN rpm-ostree install \
     gobject-introspection-devel \
     cairo-gobject-devel \
     gdb \
-    network-manager-applet
+    network-manager-applet \
+    fuse-sshfs
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
