@@ -164,7 +164,8 @@ RUN rm -rf \
     /usr/libexec/bazzite-autologin \
     /usr/share/wayland-sessions/sway.desktop \
     /usr/etc/profile.d/bazzite-neofetch.sh \
-    /usr/etc/profile.d/brew.sh
+    /usr/etc/profile.d/brew.sh \
+    /usr/bin/gamescope-session-plus
 
 
 
@@ -174,11 +175,13 @@ RUN mkdir -p /usr/libexec
 COPY drop_ins/* /
 COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
 COPY drop_ins/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/sway.desktop
+COPY drop_is/usr/bin/gamescope-session-plus /usr/bin/gamescope-session-plus
 RUN chmod +x /usr/bin/bazzite-steam ;\
     chmod +x /usr/libexec/bazzite-autologin ;\
     chmod +x /usr/bin/steamos-session-select ; \
     chmod +x /usr/share/applications/* ; \
-    chmod +x /usr/bin/start-swaywm
+    chmod +x /usr/bin/start-swaywm ; \
+    chmod +x /usr/bin/gamescope-session-plus
 COPY drop_ins/usr/share/ublue-os/just/100-fido-install.just /usr/share/ublue-os/just/100-fido-install.just
 RUN echo 'import "/usr/share/ublue-os/just/100-fido-install.just"' >> /usr/share/ublue-os/justfile
 ################################################## fix ld, alternatives currently broken
