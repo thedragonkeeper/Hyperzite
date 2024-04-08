@@ -147,7 +147,10 @@ RUN rpm-ostree install \
     python3-bluez \
     bluez-cups \
     v4l2loopback \
-    kmod-v4l2loopback
+    kmod-v4l2loopback \
+    nmap \
+    nmap-ncat \
+    python3-nmap
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
