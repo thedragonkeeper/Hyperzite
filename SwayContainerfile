@@ -150,7 +150,11 @@ RUN rpm-ostree install \
     kmod-v4l2loopback \
     nmap \
     nmap-ncat \
-    python3-nmap
+    python3-nmap \
+    iftop \
+    iperf3 \
+    wireshark \
+    python3-pyshark
 
 #################################################### delete files wont need or will replace
 RUN rm -rf \
