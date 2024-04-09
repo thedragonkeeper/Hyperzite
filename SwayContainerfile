@@ -153,7 +153,7 @@ RUN rpm-ostree install \
     wireshark \
     python3-pyshark \
     bluez \
-    bluez-tols \
+    bluez-tools \
     blueman
 
 #################################################### delete files wont need or will replace
