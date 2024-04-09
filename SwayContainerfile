@@ -204,10 +204,10 @@ RUN ln -sf /etc/alternatives/ld /usr/bin/ld
 RUN sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
 
 ##################################################### remove anything for python
-RUN pip3 uninstall -y hyfetch
+RUN pip3 uninstall -y hyfetch hid
 ##################################################### add anything for python
 RUN mkdir -p /var/usrlocal/lib64
-RUN pip3 install paramiko
+RUN pip3 install paramiko hidapi
 ##################################################### onscreen keyboard 
 RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
 RUN chmod +x /usr/bin/wvkbd
