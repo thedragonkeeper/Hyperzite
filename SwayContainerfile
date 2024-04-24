@@ -76,7 +76,6 @@ RUN rpm-ostree override remove \
     steamdeck-gnome-presets \
     gnome-shell-extension-caribou-blocker \
     nautilus \
-    mutter \
     gdm \
     libgdata \
     nautilus-gsconnect \
