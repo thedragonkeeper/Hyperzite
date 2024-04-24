@@ -47,9 +47,9 @@ jobs:
       fail-fast: false
       matrix:
         base_image_name: [hyperzite]
-        major_version: [39]
+        major_version: [40]
         include:
-          - major_version: 39
+          - major_version: 40
             is_latest_version: true
             is_stable_version: true
     steps:
@@ -130,7 +130,7 @@ jobs:
         shell: bash
         run: |
           set -eo pipefail
-          ver=$(skopeo inspect docker://ghcr.io/ublue-os/bazzite-deck-gnome:39 | jq -r '.Labels["org.opencontainers.image.version"]')
+          ver=$(skopeo inspect docker://ghcr.io/ublue-os/bazzite-deck-gnome:latest | jq -r '.Labels["org.opencontainers.image.version"]')
           if [ -z "$ver" ] || [ "null" = "$ver" ]; then
             echo "inspected image version must not be empty or null"
             exit 1
