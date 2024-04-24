@@ -1,10 +1,128 @@
-FROM ghcr.io/ublue-os/bazzite-deck:latest as Hyperzite
+FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest as Hyperzite
 
 RUN curl -sL -o /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:erikreider:SwayNotificationCenter.repo https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
 
-## remove some junk 
-RUN IFS=$'\n' read -r -d '' -a pk1 < <( rpm -qa |grep plasma && printf '\0' ) ; \
-  IFS=$'\n' read -r -d '' -a pk2 < <( rpm -qa |grep kde && printf '\0' ) ; \
-  packages+=( "${pk1[@]}" "${pk2[@]}" ) ; \
-  packages=$( IFS=$' '; echo "${packages[*]}" ) ; \
-  rpm-ostree override remove $packages
+################################################### install stuff
+RUN rpm-ostree install \
+    ranger \
+    ncdu \
+    python3-beautifulsoup4 \
+    scanmem \
+    screen \
+    nano \
+    xdg-desktop-portal \
+    xdg-desktop-portal-devel \
+    xdg-desktop-portal-gtk \
+    xdg-desktop-portal-wlr \
+    xdg-desktop-portal-lxqt \
+    xdg-desktop-portal-xapp \
+    nwg-panel \
+    wlr-randr \
+    nwg-wrapper \
+    qt5-qtwayland \
+    qt6-qtwayland \
+    sway \
+    kitty \
+    nwg-launchers \
+    plymouth-theme-breeze.x86_64 \
+    plymouth-plugin-script.x86_64 \
+    thunar \
+    thunar-volman \
+    thunar-archive-plugin \
+    htop \
+    python3-pywlroots \
+    grimshot \
+    gtk-layer-shell \
+    gtk3 \
+    gtk4 \
+    egl-wayland \
+    gedit \
+    SwayNotificationCenter \
+    binutils \
+    yt-dlp \
+    egl-wayland-devel \
+    wayland-devel \
+    python3-cairo-devel \
+    libxkbcommon-devel \
+    pangomm-devel \
+    python3-devel \
+    qt6-linguist \
+    cairo-devel \
+    gobject-introspection-devel \
+    cairo-gobject-devel \
+    gdb \
+    network-manager-applet \
+    fuse-sshfs \
+    python3-bluez \
+    bluez-cups \
+    nmap \
+    nmap-ncat \
+    python3-nmap \
+    iftop \
+    iperf3 \
+    wireshark \
+    python3-pyshark \
+    bluez \
+    bluez-tools \
+    blueman \
+    android-tools
+
+#################################################### delete files wont need or will replace
+RUN rm -rf \
+    /usr/etc/dconf/db/local.d/02-bazzite-global \
+    /usr/etc/dconf/db/local.d/03-bazzite-dash \
+    /usr/etc/dconf/db/local.d/04-bazzite-folders \
+    /usr/etc/dconf/db/local.d/06-bazzite-theme \
+    /usr/etc/dconf/db/local.d/05-bazzite-extensions \
+    /usr/etc/dconf/db/local.d/07-bazzite-deck \
+    /usr/share/xsessions/gnome-xorg-oneshot.desktop \
+    /usr/share/wayland-sessions/gnome-wayland-oneshot.desktop \
+    /usr/bin/gnome-session-oneshot \
+    /usr/bin/gnome-help \
+    /usr/bin/return-to-gamemode \
+    /usr/bin/steamos-session-select \
+    /usr/etc/environment \
+    /usr/etc/bazzite/initramfs/args.d/00-example.conf \
+    /usr/bin/bazzite-steam \
+    /usr/libexec/bazzite-autologin \
+    /usr/share/wayland-sessions/sway.desktop \
+    /usr/etc/profile.d/bazzite-neofetch.sh \
+    /usr/etc/profile.d/brew.sh \
+    /usr/bin/gamescope-session-plus \
+    /usr/share/ublue-os/bazzite/neofetch.conf
+
+
+
+################################################## enable needed services and copy in files needed
+RUN systemctl enable sshd
+RUN mkdir -p /usr/libexec
+COPY drop_ins/* /
+COPY drop_ins/usr/libexec/bazzite-autologin /usr/libexec/bazzite-autologin
+COPY drop_ins/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/sway.desktop
+COPY drop_ins/usr/bin/gamescope-session-plus /usr/bin/gamescope-session-plus
+RUN chmod +x /usr/bin/bazzite-steam ;\
+    chmod +x /usr/libexec/bazzite-autologin ;\
+    chmod +x /usr/bin/steamos-session-select ; \
+    chmod +x /usr/share/applications/* ; \
+    chmod +x /usr/bin/start-swaywm ; \
+    chmod +x /usr/bin/gamescope-session-plus
+
+################################################## fix ld, alternatives currently broken
+RUN ln -sf /usr/bin/ld.bfd /etc/alternatives/ld
+RUN ln -sf /etc/alternatives/ld /usr/bin/ld
+
+################################################## edit files 
+RUN sed -i 's/\(Bazzite GNOME\)/Hyperzite SWAY/g' /usr/lib/os-release
+
+##################################################### remove anything for python
+RUN pip3 uninstall -y hyfetch hid
+##################################################### add anything for python
+RUN mkdir -p /var/usrlocal/lib64
+RUN pip3 install paramiko hidapi
+##################################################### onscreen keyboard 
+RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
+RUN chmod +x /usr/bin/wvkbd
+
+################################################## cleanup and commit image
+RUN rm -rf /tmp/* /var/* && \
+  ostree container commit
