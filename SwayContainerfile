@@ -15,6 +15,9 @@ RUN rm -rf \
 
 #######################################################  remove junk
 RUN rpm-ostree override remove \
+    gnome-settings-daemon-devel \
+    msgraph \
+    gnome-desktop4-devel \
     gnome-menus \
     pinentry-gnome3 \
     gnome-remote-desktop \
