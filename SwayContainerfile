@@ -19,7 +19,6 @@ RUN rpm-ostree override remove \
     pinentry-gnome3 \
     gnome-remote-desktop \
     fedora-chromium-config-gnome \
-    f39-backgrounds-gnome \
     gnome-desktop4 \
     gnome-settings-daemon \
     gnome-session \
