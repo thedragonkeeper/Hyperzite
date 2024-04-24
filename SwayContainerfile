@@ -15,6 +15,7 @@ RUN rm -rf \
 
 #######################################################  remove junk
 RUN rpm-ostree override remove \
+    mutter \
     gnome-settings-daemon-devel \
     msgraph \
     gnome-desktop4-devel \
