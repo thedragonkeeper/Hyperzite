@@ -30,7 +30,6 @@ RUN rpm-ostree install \
     thunar-volman \
     thunar-archive-plugin \
     htop \
-    python3-pywlroots \
     grimshot \
     gtk-layer-shell \
     gtk3 \
