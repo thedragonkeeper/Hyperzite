@@ -1,7 +1,8 @@
 FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest as Hyperzite
 
 RUN curl -sL -o /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:erikreider:SwayNotificationCenter.repo https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-$(rpm -E %fedora)/erikreider-SwayNotificationCenter-fedora-$(rpm -E %fedora).repo
-
+RUN rpm-ostree remove \
+    wlroots
 ################################################### install stuff
 RUN rpm-ostree install \
     ranger \
